@@ -9,20 +9,20 @@ pipeline {
 	
 		stage('Compile Stage') {
 			steps {
-				sh 'mvn clean compile'
+				bat 'mvn clean compile'
 			}
 		}	
 		
 		stage('Testing Stage') {
 			steps {
-				sh 'mvn test'	
+				bat 'mvn test'	
 			}
 		}	
 		
 			
 		stage('Verify Stage') {
 			steps {
-					sh 'mvn verify'
+					bat 'mvn verify'
 			}
 		}
 	}
