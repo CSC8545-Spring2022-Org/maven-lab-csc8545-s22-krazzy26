@@ -1,33 +1,28 @@
 pipeline {
 	agent any
+	tools {
+		maven 'MAVEN385'
+		jdk 'JAVA11JDK'
+	}
 	
 	stages {
+	
 		stage('Compile Stage') {
-		
 			steps {
-				withMaven(maven : 'MAVEN385') {
-					sh 'mvn clean compile'
-				}	
+				sh 'mvn clean compile'
 			}
 		}	
 		
-		
 		stage('Testing Stage') {
-		
 			steps {
-				withMaven(maven : 'MAVEN385') {
-					sh 'mvn test'
-				}	
+				sh 'mvn test'	
 			}
 		}	
 		
 			
 		stage('Verify Stage') {
-		
 			steps {
-				withMaven(maven : 'MAVEN385') {
 					sh 'mvn verify'
-				}	
 			}
 		}
 	}
